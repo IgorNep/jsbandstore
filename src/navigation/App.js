@@ -1,11 +1,9 @@
 import React from 'react';
 
+console.log('helo');
 const App = () => {
-  return (
-    <div>
-      <h1>Hello World</h1>
-    </div>
-  );
+  const a = '123';
+  return <div />;
 };
 
 export default App;
