@@ -1,7 +1,8 @@
 import React from 'react';
 
 const App = () => {
-  return <div />;
+  const title = 'Hello world';
+  return <h3>{title}</h3>;
 };
 
 export default App;
