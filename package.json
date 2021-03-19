@@ -24,8 +24,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint": "eslint --max-warnings=0 src",
-    "prettier:fix": "prettier .src/*.js,*.jsx --write .",
+    "lint": "eslint --max-warnings=0 src --fix",
+    "prettier:fix": "prettier --write \"**/*.{js,jsx}\" \"!package.json\"",
     "prettier:check": "prettier .src/*.js,*.jsx --check ."
   },
   "browserslist": {
@@ -63,7 +63,6 @@
       "npm run lint",
       "npm run prettier:fix",
       "git add"
-    ],
-    "*.js": "eslint --cache --fix"
+    ]   
   }
 }
