@@ -16,7 +16,7 @@ const Navbar = () => {
           </div>
         </div>
       </nav>
-      <div className="navbar navbar-dark bg-primary navbar-expand-lg mb-3 py-3">
+      <div className="navbar navbar-dark bg-info navbar-expand-lg mb-3 py-3">
         <div className="container">
           <Link to="/">
             <i className="fa fa-book" /> JS Band Store
