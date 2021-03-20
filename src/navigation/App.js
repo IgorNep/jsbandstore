@@ -3,7 +3,7 @@ import Private from './Private';
 import Public from './Public';
 
 const App = () => {
-  const isAuthorized = false;
+  const isAuthorized = true;
   return isAuthorized ? <Private /> : <Public />;
 };
 
