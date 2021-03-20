@@ -8,8 +8,11 @@
     "@testing-library/react": "^11.2.5",
     "@testing-library/user-event": "^12.8.3",
     "bootstrap": "^4.6.0",
+    "classnames": "^2.2.6",
     "font-awesome": "^4.7.0",
     "gh-pages": "^3.1.0",
+    "node-sass": "^4.14.1",
+    "prop-types": "^15.7.2",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-redux": "^7.2.2",
@@ -21,9 +24,10 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",   
-    "test": "cross-env CI=true react-scripts test ",
+    "build": "react-scripts build",
     "eject": "react-scripts eject",
+    "test": "react-scripts test ",
+    "test:staged": "cross-env CI=true react-scripts test --findRelatedTests",
     "lint": "eslint --max-warnings=0 src --fix",
     "prettier:fix": "prettier --write \"**/*.{js,jsx}\" \"!package.json\"",
     "prettier:check": "prettier .src/*.js,*.jsx --check ."
@@ -62,7 +66,7 @@
   },
   "lint-staged": {
     "src/**/*.js": [
-      "npm run test",
+      "npm run test:staged",
       "npm run lint",
       "npm run prettier:fix"
     ]
