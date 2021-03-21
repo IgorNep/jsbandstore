@@ -2,6 +2,7 @@ import {
   USER_LOGIN_REQUEST,
   USER_LOGIN_SUCCESS,
   USER_LOGIN_FAIL,
+  USER_LOGOUT,
 } from './userTypes';
 
 const userLoginReducer = (state = {}, action) => {
@@ -20,6 +21,8 @@ const userLoginReducer = (state = {}, action) => {
         error: action.payload,
         loading: false,
       };
+    case USER_LOGOUT:
+      return {};
     default:
       return state;
   }

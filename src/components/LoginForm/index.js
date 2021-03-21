@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import picLogin from 'assets/images/login_pic.jpg';
 import styles from './styles.module.scss';
 
-const LoginForm = () => {
+const LoginForm = ({ onLoginSubmit }) => {
   const [username, setUserName] = useState('');
   const [error, setError] = useState(false);
   const onSubmit = (e) => {
@@ -10,6 +11,7 @@ const LoginForm = () => {
     if (username.length < 4 || username.length > 16) {
       setError(true);
     } else {
+      onLoginSubmit(username);
       setUserName('');
       setError(false);
     }
@@ -48,6 +50,10 @@ const LoginForm = () => {
       </div>
     </div>
   );
+};
+
+LoginForm.propTypes = {
+  onLoginSubmit: PropTypes.func.isRequired,
 };
 
 export default LoginForm;
