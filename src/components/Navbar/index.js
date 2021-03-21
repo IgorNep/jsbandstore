@@ -1,18 +1,22 @@
 import Button from 'components/common/Button';
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import style from './styles.module.scss';
 
-const Navbar = () => {
+const Navbar = ({ username, onLogoutClicked }) => {
   const cartItemsSum = 3;
-  const username = 'Maxim';
   return (
     <header>
       <nav className="navbar  navbar-expand-lg ">
         <div className="container">
           <div className={style.navbarItem}>
             <span>{username}</span>
-            <Button title="Sign Out" extraClassName="btn-secondary py-2 ml-3" />
+            <Button
+              title="Sign Out"
+              extraClassName="btn-secondary py-2 ml-3"
+              onClick={() => onLogoutClicked()}
+            />
           </div>
         </div>
       </nav>
@@ -28,6 +32,11 @@ const Navbar = () => {
       </div>
     </header>
   );
+};
+
+Navbar.propTypes = {
+  username: PropTypes.string.isRequired,
+  onLogoutClicked: PropTypes.func.isRequired,
 };
 
 export default Navbar;
