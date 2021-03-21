@@ -35,6 +35,9 @@ class ApiService {
   }
 }
 
-const apiService = new ApiService('https://js-band-api.glitch.me', ENDPOINTS);
+const apiService = new ApiService(
+  'https://js-band-store-api.glitch.me',
+  ENDPOINTS
+);
 
 export default apiService;
