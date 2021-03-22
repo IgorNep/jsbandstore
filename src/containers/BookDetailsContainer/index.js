@@ -1,7 +1,57 @@
-import React from 'react';
+import { getBookById } from 'bus/books/booksActions';
+import {
+  currentBookSelector,
+  errorSelector,
+  loadingSelector,
+} from 'bus/books/booksSelectors';
+import AddCountItem from 'components/AddCountItem';
+import BookDetailsItem from 'components/BookDetailsItem';
+import Alert from 'components/common/Alert';
+import Loader from 'components/common/Loader';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
+import style from './styles.module.scss';
 
 const BookDetailsContainer = () => {
-  return <h3>this is books details page</h3>;
+  const dispatch = useDispatch();
+  const params = useParams();
+  const loading = useSelector(loadingSelector);
+  const error = useSelector(errorSelector);
+  const book = useSelector(currentBookSelector);
+
+  useEffect(() => {
+    dispatch(getBookById(params.id));
+  }, []);
+
+  const onAddToCartClick = (totalPrice) => {
+    // eslint-disable-next-line no-console
+    console.log('TOTAL IS:', totalPrice, 'BOOK IS:', book.title);
+  };
+
+  if (loading) {
+    return <Loader />;
+  }
+  if (error) {
+    return <Alert title={error} type="danger" />;
+  }
+
+  return (
+    book && (
+      <>
+        <div className="container">
+          <div className={style.bookDetailsWrapper}>
+            <BookDetailsItem book={book} />
+            <AddCountItem
+              count={book.count}
+              price={book.price}
+              onAddToCartClick={onAddToCartClick}
+            />
+          </div>
+        </div>
+      </>
+    )
+  );
 };
 
 export default BookDetailsContainer;

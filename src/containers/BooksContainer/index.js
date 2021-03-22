@@ -30,12 +30,12 @@ const BooksContainer = () => {
   ) : (
     <>
       <div className="container">
-        <h3>Books list</h3>
         <div className={style.booksWrapper}>
           {books &&
             books.map((book) => (
               <BookItem
                 key={book.id}
+                id={book.id}
                 title={book.title}
                 author={book.author}
                 price={book.price}
