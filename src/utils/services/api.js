@@ -18,8 +18,11 @@ class ApiService {
     this.baseUrl = baseUrl;
   }
 
-  async getData(endpoint) {
-    const res = await axios.get(`${this.baseUrl}${this.endpoints[endpoint]}`);
+  async getData(endpoint, config) {
+    const res = await axios.get(
+      `${this.baseUrl}${this.endpoints[endpoint]}`,
+      config
+    );
     return res.data;
   }
 
