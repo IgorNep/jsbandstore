@@ -24,7 +24,7 @@ export const getBooks = () => async (dispatch, getState) => {
     const res = await apiService.getData(BOOKS, config);
     dispatch({ type: BOOKS_GET_SUCCESS, payload: res });
   } catch (error) {
-    dispatch({ type: BOOKS_GET_FAIL, payload: { error } });
+    dispatch({ type: BOOKS_GET_FAIL, payload: { error: error.message } });
   }
 };
 
@@ -44,6 +44,6 @@ export const getBookById = (bookId) => async (dispatch, getState) => {
     const res = await apiService.getDataById(BOOKS, bookId, config);
     dispatch({ type: BOOK_GET_BY_ID_SUCCESS, payload: res });
   } catch (error) {
-    dispatch({ type: BOOK_GET_BY_ID_FAIL, payload: { error } });
+    dispatch({ type: BOOK_GET_BY_ID_FAIL, payload: { error: error.message } });
   }
 };

@@ -11,6 +11,7 @@ import Loader from 'components/common/Loader';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
+import { addBook } from 'bus/cart/cartActions';
 import style from './styles.module.scss';
 
 const BookDetailsContainer = () => {
@@ -24,9 +25,8 @@ const BookDetailsContainer = () => {
     dispatch(getBookById(params.id));
   }, []);
 
-  const onAddToCartClick = (totalPrice) => {
-    // eslint-disable-next-line no-console
-    console.log('TOTAL IS:', totalPrice, 'BOOK IS:', book.title);
+  const onAddToCartClick = (quantity) => {
+    dispatch(addBook({ ...book, quantity }));
   };
 
   if (loading) {

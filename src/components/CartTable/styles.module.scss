@@ -1,0 +1,12 @@
+.cartTable{
+ 
+table{
+    td,th{
+        text-align: left;
+        vertical-align: middle;
+    }
+    tr td:last-child{
+        text-align: center;
+    }
+}
+}

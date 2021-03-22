@@ -20,7 +20,9 @@ const AddCountItem = ({ count, price, onAddToCartClick }) => {
   };
   return (
     <div className={style.addCountWrapper}>
-      {errorValue && <span className="text-danger">{errorValue}</span>}
+      {errorValue && (
+        <span className="text-danger mb-3 d-block">{errorValue}</span>
+      )}
       <div className={style.fieldGroup}>
         <span>Price, $ </span>
         <span>{price}</span>
@@ -37,7 +39,7 @@ const AddCountItem = ({ count, price, onAddToCartClick }) => {
         <Button
           title="Add To Cart"
           extraClassName="btn-info"
-          onClick={() => onAddToCartClick(totalPrice)}
+          onClick={() => onAddToCartClick(countValue)}
           disabled={countValue === 0}
         />
       </div>
