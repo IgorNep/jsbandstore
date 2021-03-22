@@ -26,6 +26,14 @@ class ApiService {
     return res.data;
   }
 
+  async getDataById(endpoint, id, config) {
+    const res = await axios.get(
+      `${this.baseUrl}${this.endpoints[endpoint]}/${id}`,
+      config
+    );
+    return res.data;
+  }
+
   async postData(endpoint, formData, params) {
     const config = getConfig();
     const newParams = { ...params, config };

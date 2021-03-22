@@ -2,6 +2,8 @@ import {
   BOOKS_GET_FAIL,
   BOOKS_GET_REQUEST,
   BOOKS_GET_SUCCESS,
+  BOOK_GET_BY_ID_SUCCESS,
+  BOOK_GET_BY_ID_FAIL,
 } from './booksTypes';
 
 const initialState = {
@@ -24,12 +26,20 @@ const booksReducer = (state = initialState, action) => {
         loading: false,
         books: action.payload,
       };
+    case BOOK_GET_BY_ID_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        currentBook: action.payload,
+      };
+    case BOOK_GET_BY_ID_FAIL:
     case BOOKS_GET_FAIL:
       return {
         ...state,
         loading: false,
         error: action.payload.error,
       };
+
     default:
       return state;
   }

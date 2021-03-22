@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import style from './styles.module.scss';
 
-const BookItem = ({ title, author, price, cover }) => {
+const BookItem = ({ title, author, price, cover, id }) => {
   return (
     <div className={classnames('card py-2', style.cardStyle)}>
       <img className={style.image} src={cover} alt="Card cap" />
@@ -13,7 +13,7 @@ const BookItem = ({ title, author, price, cover }) => {
         <p className="card-text">{author}</p>
         <p className={classnames('card-text', style.priceSection)}>
           {price} ${' '}
-          <Link to="/" className="btn btn-info">
+          <Link to={`/books/${id}`} className="btn btn-info">
             View
           </Link>
         </p>
@@ -23,6 +23,7 @@ const BookItem = ({ title, author, price, cover }) => {
 };
 
 BookItem.propTypes = {
+  id: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   author: PropTypes.string.isRequired,
   price: PropTypes.number.isRequired,
