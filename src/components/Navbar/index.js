@@ -4,8 +4,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import style from './styles.module.scss';
 
-const Navbar = ({ username, onLogoutClicked }) => {
-  const cartItemsSum = 3;
+const Navbar = ({ username, onLogoutClicked, cartItemsSum = 0 }) => {
   return (
     <header>
       <nav className="navbar  navbar-expand-lg ">
@@ -37,6 +36,7 @@ const Navbar = ({ username, onLogoutClicked }) => {
 Navbar.propTypes = {
   username: PropTypes.string.isRequired,
   onLogoutClicked: PropTypes.func.isRequired,
+  cartItemsSum: PropTypes.number.isRequired,
 };
 
 export default Navbar;
