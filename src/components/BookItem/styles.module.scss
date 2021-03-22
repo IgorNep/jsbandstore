@@ -1,0 +1,21 @@
+.cardStyle{
+    box-shadow: 0 3px 10px rgba(0,0,0,0.5);
+}
+.cardBodyStyle{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-content: space-between;
+}
+
+.image{
+    display: block;
+    width: 150px;
+    margin:0 auto;    
+}
+
+.priceSection{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

@@ -1,17 +1,50 @@
-import { loadingSelector } from 'bus/userLogin/userSelectors';
+import { getBooks } from 'bus/books/booksActions';
+import {
+  loadingSelector,
+  errorSelector,
+  booksSelector,
+} from 'bus/books/booksSelectors';
+import BookItem from 'components/BookItem';
+import Alert from 'components/common/Alert';
 import Loader from 'components/common/Loader';
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import style from './styles.module.scss';
 
 const BooksContainer = () => {
+  const dispatch = useDispatch();
+  const books = useSelector(booksSelector);
   const loading = useSelector(loadingSelector);
+  const error = useSelector(errorSelector);
 
-  return loading ? (
-    <Loader />
+  useEffect(() => {
+    dispatch(getBooks());
+  }, []);
+
+  if (loading) {
+    return <Loader />;
+  }
+
+  return error ? (
+    <Alert title={error.message} type="danger" />
   ) : (
-    <div className="container">
-      <h3>This is main page</h3>
-    </div>
+    <>
+      <div className="container">
+        <h3>Books list</h3>
+        <div className={style.booksWrapper}>
+          {books &&
+            books.map((book) => (
+              <BookItem
+                key={book.id}
+                title={book.title}
+                author={book.author}
+                price={book.price}
+                cover={book.cover}
+              />
+            ))}
+        </div>
+      </div>
+    </>
   );
 };
 
