@@ -7,7 +7,11 @@ const Alert = ({ title, type }) => {
 
 Alert.propTypes = {
   title: PropTypes.string.isRequired,
-  type: PropTypes.string.isRequired,
+  type: PropTypes.string,
+};
+
+Alert.defaultProps = {
+  type: 'danger',
 };
 
 export default Alert;

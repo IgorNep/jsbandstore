@@ -11,7 +11,7 @@ const AddCountItem = ({ count, price, onAddToCartClick }) => {
   const onChangeHandler = (e) => {
     if (e.target.value >= 0 && e.target.value <= count) {
       setCountValue(Number(e.target.value));
-      setTotalPrice(Number(price * e.target.value));
+      setTotalPrice(Number(price * e.target.value).toFixed(2));
       setErrorValue('');
     }
     if (e.target.value > count) {

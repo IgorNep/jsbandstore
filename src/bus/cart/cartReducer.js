@@ -1,7 +1,17 @@
-import { CART_ADD_BOOK, CART_CLEAR } from './cartTypes';
+import { CART_ADD_BOOK, CART_CLEAR, CART_ADD_REQUEST } from './cartTypes';
 
-const cartReducer = (state = { cartItems: [] }, action) => {
+const initialState = {
+  cartItems: [],
+  loading: false,
+};
+
+const cartReducer = (state = initialState, action) => {
   switch (action.type) {
+    case CART_ADD_REQUEST:
+      return {
+        ...state,
+        loading: true,
+      };
     case CART_ADD_BOOK: {
       const item = action.payload;
 
@@ -13,6 +23,7 @@ const cartReducer = (state = { cartItems: [] }, action) => {
           cartItems: state.cartItems.map((book) =>
             book.id === existItem.id ? item : book
           ),
+          loading: false,
         };
       }
       return {
@@ -24,6 +35,7 @@ const cartReducer = (state = { cartItems: [] }, action) => {
       return {
         ...state,
         cartItems: [],
+        loading: false,
       };
     default:
       return state;

@@ -26,7 +26,7 @@ const BooksContainer = () => {
   }
 
   return error ? (
-    <Alert title={error.message} type="danger" />
+    <Alert title={error} />
   ) : (
     <>
       <div className="container">

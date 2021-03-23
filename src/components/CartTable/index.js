@@ -25,13 +25,13 @@ const CartTable = ({ cartItems }) => {
               <td>{item.title}</td>
               <td> {item.quantity}</td>
               <td> {item.price}</td>
-              <td>{item.price * item.quantity}</td>
+              <td>{(item.price * item.quantity).toFixed(2)}</td>
             </tr>
           ))}
         </tbody>
       </table>
       <div className={style.totalPriceInfo}>
-        Total Price: {totalPriceInfo} $
+        Total Price: {totalPriceInfo.toFixed(2)} $
       </div>
     </div>
   );

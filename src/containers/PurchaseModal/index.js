@@ -5,10 +5,10 @@ import WrapperForModal from 'components/common/WrapperForModal';
 import CartTable from 'components/CartTable';
 import Button from 'components/common/Button';
 
-const PurchaseModal = ({ cartItems, closeHandler }) => {
+const PurchaseModal = ({ title, cartItems, closeHandler }) => {
   return (
     <Portal>
-      <WrapperForModal title="You successfully placed an order!">
+      <WrapperForModal title={title}>
         <CartTable cartItems={cartItems} />
         <Button
           title="Close"

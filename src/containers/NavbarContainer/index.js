@@ -4,7 +4,7 @@ import { userInfoSelector } from 'bus/userLogin/userSelectors';
 import Navbar from 'components/Navbar';
 import { logoutUser } from 'bus/userLogin/userActions';
 import { useHistory } from 'react-router-dom';
-import cartItemsSelector from 'bus/cart/cartSelectors';
+import { cartItemsSelector } from 'bus/cart/cartSelectors';
 
 const NavbarContainer = () => {
   const dispatch = useDispatch();
