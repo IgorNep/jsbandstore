@@ -1,10 +1,13 @@
 /* eslint-disable react/forbid-prop-types */
 import React from 'react';
 import PropTypes from 'prop-types';
-import Button from 'components/common/Button';
 import style from './styles.module.scss';
 
-const CartTable = ({ cartItems, onDeleteClick }) => {
+const CartTable = ({ cartItems }) => {
+  const totalPriceInfo = cartItems.reduce((acc, item) => {
+    return acc + item.quantity * item.price;
+  }, 0);
+
   return (
     <div className={style.cartTable}>
       <table className="table table-striped table-bordered mt-3">
@@ -14,33 +17,28 @@ const CartTable = ({ cartItems, onDeleteClick }) => {
             <th>Count</th>
             <th>Price</th>
             <th>Total</th>
-            <th> </th>
           </tr>
         </thead>
         <tbody>
           {cartItems.map((item) => (
-            <tr>
+            <tr key={item.id}>
               <td>{item.title}</td>
               <td> {item.quantity}</td>
               <td> {item.price}</td>
-              <td>{item.price * item.quantity} $</td>
-              <td>
-                <Button
-                  title="delete"
-                  extraClassName="btn-danger"
-                  onClick={() => onDeleteClick(item.id)}
-                />
-              </td>
+              <td>{item.price * item.quantity}</td>
             </tr>
           ))}
         </tbody>
       </table>
+      <div className={style.totalPriceInfo}>
+        Total Price: {totalPriceInfo} $
+      </div>
     </div>
   );
 };
 
 CartTable.propTypes = {
   cartItems: PropTypes.array.isRequired,
-  onDeleteClick: PropTypes.func.isRequired,
 };
+
 export default CartTable;

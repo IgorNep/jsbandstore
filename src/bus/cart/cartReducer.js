@@ -1,4 +1,4 @@
-import { CART_ADD_BOOK, CART_REMOVE_BOOK } from './cartTypes';
+import { CART_ADD_BOOK, CART_CLEAR } from './cartTypes';
 
 const cartReducer = (state = { cartItems: [] }, action) => {
   switch (action.type) {
@@ -20,11 +20,10 @@ const cartReducer = (state = { cartItems: [] }, action) => {
         cartItems: [...state.cartItems, item],
       };
     }
-
-    case CART_REMOVE_BOOK:
+    case CART_CLEAR:
       return {
         ...state,
-        cartItems: state.cartItems.filter((book) => book.id !== action.payload),
+        cartItems: [],
       };
     default:
       return state;

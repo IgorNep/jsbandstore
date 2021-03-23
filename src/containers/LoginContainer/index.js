@@ -33,7 +33,7 @@ const LoginContainer = () => {
 
   return (
     <>
-      {error && <Alert title={error.message} type="danger" />}
+      {error && <Alert title={error} type="danger" />}
       <LoginForm onLoginSubmit={onLoginSubmit} />
     </>
   );
