@@ -6,7 +6,8 @@ import {
   BOOKS_GET_SUCCESS,
   BOOK_GET_BY_ID_FAIL,
   BOOK_GET_BY_ID_SUCCESS,
-  BOOK_FILTER,
+  BOOK_SEARCH,
+  BOOK_FILTER_BY_PRICE,
 } from './booksTypes';
 
 export const getBooks = () => async (dispatch, getState) => {
@@ -61,6 +62,10 @@ export const getBookById = (bookId) => async (dispatch, getState) => {
   }
 };
 
-export const filterBooks = (text) => (dispatch) => {
-  dispatch({ type: BOOK_FILTER, payload: text });
+export const searchBooks = (text) => (dispatch) => {
+  dispatch({ type: BOOK_SEARCH, payload: text.trim() });
+};
+
+export const filterByPrice = (priceValue) => (dispatch) => {
+  dispatch({ type: BOOK_FILTER_BY_PRICE, payload: priceValue });
 };

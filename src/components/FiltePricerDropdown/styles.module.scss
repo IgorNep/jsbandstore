@@ -1,0 +1,11 @@
+.priceSelect{
+    padding:0.3rem;
+    border-radius: 20px;
+    outline: none;
+    border:1px solid rgba(0,0,0,0.3);
+    cursor: pointer;
+    &:focus{
+        border:1px solid #17A2B8;
+        box-shadow: 0 0 0 0.2rem rgba(0, 123, 255,  0.25);
+    }
+}
