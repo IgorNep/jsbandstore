@@ -13,7 +13,7 @@ const NotFound = () => {
       <h3>Sorry, that page does not exist</h3>
       <Button
         title="Take me home"
-        extraClassName="btn-info"
+        extraClassName="btn-info mt-3"
         onClick={() => {
           history.push('/');
         }}

@@ -1,14 +1,16 @@
-import { filterBooks, getBooks } from 'bus/books/booksActions';
+import { getBooks, searchBooks, filterByPrice } from 'bus/books/booksActions';
 import {
   loadingSelector,
   errorSelector,
   booksSelector,
+  searchedBooksSelector,
   filteredBooksSelector,
 } from 'bus/books/booksSelectors';
 import BookItem from 'components/BookItem';
 import Alert from 'components/common/Alert';
 import Loader from 'components/common/Loader';
 import SearchBox from 'components/common/SearchBox';
+import FilterPriceDropdown from 'components/FiltePricerDropdown';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import style from './styles.module.scss';
@@ -18,13 +20,18 @@ const BooksContainer = () => {
   const books = useSelector(booksSelector);
   const loading = useSelector(loadingSelector);
   const error = useSelector(errorSelector);
+  const searchedBooks = useSelector(searchedBooksSelector);
   const filteredBooks = useSelector(filteredBooksSelector);
 
   const submitSearchHandler = (text) => {
-    dispatch(filterBooks(text));
+    dispatch(searchBooks(text));
   };
 
-  const booksToRender = filteredBooks || books;
+  const filterHandler = (priceValue) => {
+    dispatch(filterByPrice(priceValue));
+  };
+
+  const booksToRender = searchedBooks || filteredBooks || books;
   useEffect(() => {
     dispatch(getBooks());
   }, []);
@@ -38,7 +45,10 @@ const BooksContainer = () => {
   ) : (
     <>
       <div className="container">
-        <SearchBox submitSearchHandler={submitSearchHandler} />
+        <div className={style.boxGroup}>
+          <SearchBox submitSearchHandler={submitSearchHandler} />
+          <FilterPriceDropdown filterHandler={filterHandler} />
+        </div>
         <div className={style.booksWrapper}>
           {booksToRender &&
             booksToRender.map((book) => (

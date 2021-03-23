@@ -1,14 +1,17 @@
+/* eslint-disable no-nested-ternary */
 import {
   BOOKS_GET_FAIL,
   BOOKS_GET_REQUEST,
   BOOKS_GET_SUCCESS,
   BOOK_GET_BY_ID_SUCCESS,
   BOOK_GET_BY_ID_FAIL,
-  BOOK_FILTER,
+  BOOK_SEARCH,
+  BOOK_FILTER_BY_PRICE,
 } from './booksTypes';
 
 const initialState = {
   books: null,
+  searchedBooks: null,
   filteredBooks: null,
   currentBook: null,
   loading: false,
@@ -34,13 +37,28 @@ const booksReducer = (state = initialState, action) => {
         loading: false,
         currentBook: action.payload,
       };
-    case BOOK_FILTER:
+    case BOOK_SEARCH:
       return {
         ...state,
-        filteredBooks: state.books.filter((book) => {
-          const regex = new RegExp(`${action.payload}`, 'gi');
-          return book.title.match(regex);
-        }),
+        searchedBooks:
+          action.payload === ''
+            ? null
+            : state.books.filter((book) => {
+                const regex = new RegExp(`${action.payload}`, 'gi');
+                return book.title.match(regex);
+              }),
+      };
+    case BOOK_FILTER_BY_PRICE:
+      return {
+        ...state,
+        filteredBooks:
+          action.payload === '1'
+            ? state.books.filter((book) => book.price > 0 && book.price < 25)
+            : action.payload === '2'
+            ? state.books.filter((book) => book.price > 25 && book.price < 50)
+            : action.payload === '3'
+            ? state.books.filter((book) => book.price > 50)
+            : null,
       };
     case BOOK_GET_BY_ID_FAIL:
     case BOOKS_GET_FAIL:

@@ -2,8 +2,8 @@
 .formGroup{
     max-width: 250px;
     width: 100%;
-    margin-top: 2rem;
     position: relative;
+    margin-right: 2rem;
     
 }
 .formControl {
@@ -11,11 +11,11 @@
     border:1px solid rgba(0,0,0,0.3);
     border-radius: 20px;
     padding:0.3rem 0 0.3rem 2.375rem;
+    outline: none;
     
     &:focus{
       border:1px solid #17A2B8;
-        outline: none;
-        box-shadow: 0 0 0 0.2rem rgba(0, 123, 255,  0.25);
+      box-shadow: 0 0 0 0.2rem rgba(0, 123, 255,  0.25);
     }
    
 }
