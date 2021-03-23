@@ -17,11 +17,20 @@ export const loginUser = (username) => async (dispatch) => {
     dispatch({ type: USER_LOGIN_SUCCESS, payload: response });
     localStorage.setItem('userInfo', JSON.stringify(response));
   } catch (error) {
-    dispatch({ type: USER_LOGIN_FAIL, payload: error });
+    dispatch({
+      type: USER_LOGIN_FAIL,
+      payload:
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message,
+    });
   }
 };
 
 export const logoutUser = () => (dispatch) => {
-  localStorage.removeItem('userInfo');
-  dispatch({ type: USER_LOGOUT });
+  dispatch({ type: USER_LOGIN_REQUEST });
+  setTimeout(() => {
+    localStorage.removeItem('userInfo');
+    dispatch({ type: USER_LOGOUT });
+  }, 500);
 };
