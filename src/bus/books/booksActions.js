@@ -6,6 +6,7 @@ import {
   BOOKS_GET_SUCCESS,
   BOOK_GET_BY_ID_FAIL,
   BOOK_GET_BY_ID_SUCCESS,
+  BOOK_FILTER,
 } from './booksTypes';
 
 export const getBooks = () => async (dispatch, getState) => {
@@ -58,4 +59,8 @@ export const getBookById = (bookId) => async (dispatch, getState) => {
           : error.message,
     });
   }
+};
+
+export const filterBooks = (text) => (dispatch) => {
+  dispatch({ type: BOOK_FILTER, payload: text });
 };

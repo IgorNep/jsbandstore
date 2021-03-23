@@ -1,0 +1,33 @@
+
+.formGroup{
+    max-width: 250px;
+    width: 100%;
+    margin-top: 2rem;
+    position: relative;
+    
+}
+.formControl {
+    width: 100%;   
+    border:1px solid rgba(0,0,0,0.3);
+    border-radius: 20px;
+    padding:0.3rem 0 0.3rem 2.375rem;
+    
+    &:focus{
+      border:1px solid #17A2B8;
+        outline: none;
+        box-shadow: 0 0 0 0.2rem rgba(0, 123, 255,  0.25);
+    }
+   
+}
+.feedback {
+    position: absolute;
+    z-index: 2;
+    top:0.6rem;
+    display: block;
+    width: 2.375rem;
+    height: 2.375rem;
+    line-height: 2.375rem;
+    text-align: center;
+    pointer-events: none;
+    color: #aaa;
+}
