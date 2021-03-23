@@ -29,6 +29,7 @@ const cartReducer = (state = initialState, action) => {
       return {
         ...state,
         cartItems: [...state.cartItems, item],
+        loading: false,
       };
     }
     case CART_CLEAR:

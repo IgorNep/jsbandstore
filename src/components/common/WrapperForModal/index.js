@@ -5,7 +5,7 @@ import styles from './styles.module.scss';
 const WrapperForModal = ({ title, children }) => (
   <div className={styles.wrapper}>
     <div className={styles.wrapperHeader}>
-      <h3 className={styles.title}>{title}</h3>
+      <h4 className={styles.title}>{title}</h4>
     </div>
     <div className={styles.wrapperChildren}>{children}</div>
   </div>

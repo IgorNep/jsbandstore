@@ -1,12 +1,14 @@
-import { getBooks } from 'bus/books/booksActions';
+import { filterBooks, getBooks } from 'bus/books/booksActions';
 import {
   loadingSelector,
   errorSelector,
   booksSelector,
+  filteredBooksSelector,
 } from 'bus/books/booksSelectors';
 import BookItem from 'components/BookItem';
 import Alert from 'components/common/Alert';
 import Loader from 'components/common/Loader';
+import SearchBox from 'components/common/SearchBox';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import style from './styles.module.scss';
@@ -16,7 +18,13 @@ const BooksContainer = () => {
   const books = useSelector(booksSelector);
   const loading = useSelector(loadingSelector);
   const error = useSelector(errorSelector);
+  const filteredBooks = useSelector(filteredBooksSelector);
 
+  const submitSearchHandler = (text) => {
+    dispatch(filterBooks(text));
+  };
+
+  const booksToRender = filteredBooks || books;
   useEffect(() => {
     dispatch(getBooks());
   }, []);
@@ -30,9 +38,10 @@ const BooksContainer = () => {
   ) : (
     <>
       <div className="container">
+        <SearchBox submitSearchHandler={submitSearchHandler} />
         <div className={style.booksWrapper}>
-          {books &&
-            books.map((book) => (
+          {booksToRender &&
+            booksToRender.map((book) => (
               <BookItem
                 key={book.id}
                 id={book.id}

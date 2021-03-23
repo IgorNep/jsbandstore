@@ -4,17 +4,20 @@ import Portal from 'components/common/Portal';
 import WrapperForModal from 'components/common/WrapperForModal';
 import CartTable from 'components/CartTable';
 import Button from 'components/common/Button';
+import style from './styles.module.scss';
 
 const PurchaseModal = ({ title, cartItems, closeHandler }) => {
   return (
     <Portal>
       <WrapperForModal title={title}>
         <CartTable cartItems={cartItems} />
-        <Button
-          title="Close"
-          extraClassName="btn-secondary"
-          onClick={closeHandler}
-        />
+        <div className={style.buttonGroup}>
+          <Button
+            title="Close"
+            extraClassName="btn-secondary"
+            onClick={closeHandler}
+          />
+        </div>
       </WrapperForModal>
     </Portal>
   );
