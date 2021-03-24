@@ -1,3 +1,4 @@
+import alertReducer from 'bus/alert/alertReducer';
 import booksReducer from 'bus/books/booksReducer';
 import cartReducer from 'bus/cart/cartReducer';
 import modalReducer from 'bus/modal/modalReducer';
@@ -12,5 +13,6 @@ const rootReducer = combineReducers({
   cart: cartReducer,
   modal: modalReducer,
   order: orderReducer,
+  alert: alertReducer,
 });
 export default rootReducer;

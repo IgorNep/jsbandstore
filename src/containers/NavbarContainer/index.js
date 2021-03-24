@@ -5,6 +5,7 @@ import Navbar from 'components/Navbar';
 import { logoutUser } from 'bus/userLogin/userActions';
 import { useHistory } from 'react-router-dom';
 import { cartItemsSelector } from 'bus/cart/cartSelectors';
+import { resetOrderInfo } from 'bus/order/orderActions';
 
 const NavbarContainer = () => {
   const dispatch = useDispatch();
@@ -18,12 +19,14 @@ const NavbarContainer = () => {
 
   const onLogoutClicked = () => {
     dispatch(logoutUser());
+    dispatch(resetOrderInfo());
     history.push('/login');
   };
   return (
     <>
       <Navbar
         username={userInfo.username}
+        avatar={userInfo.avatar}
         onLogoutClicked={onLogoutClicked}
         cartItemsSum={totalCartItemsQuantity}
       />

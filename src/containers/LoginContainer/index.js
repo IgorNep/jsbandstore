@@ -9,7 +9,7 @@ import {
 } from 'bus/userLogin/userSelectors';
 import { useHistory } from 'react-router-dom';
 import Loader from 'components/common/Loader';
-import Alert from 'components/common/Alert';
+import { showAlert } from 'bus/alert/alertActions';
 
 const LoginContainer = () => {
   const dispatch = useDispatch();
@@ -22,7 +22,13 @@ const LoginContainer = () => {
     if (userInfo) {
       history.push('/');
     }
-  }, [history, userInfo, loginUser]);
+  }, [history, userInfo, loginUser, error]);
+
+  useEffect(() => {
+    if (error) {
+      dispatch(showAlert({ title: error }));
+    }
+  }, [error]);
   const onLoginSubmit = (username) => {
     dispatch(loginUser(username));
   };
@@ -33,7 +39,6 @@ const LoginContainer = () => {
 
   return (
     <>
-      {error && <Alert title={error} />}
       <LoginForm onLoginSubmit={onLoginSubmit} />
     </>
   );

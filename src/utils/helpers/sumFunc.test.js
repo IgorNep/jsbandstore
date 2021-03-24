@@ -7,4 +7,7 @@ describe('Sum function', () => {
   test('should not return 6', () => {
     expect(sum(3, 3)).toBe(6);
   });
+  test('should  return 4', () => {
+    expect(sum(2, 2)).toBe(4);
+  });
 });

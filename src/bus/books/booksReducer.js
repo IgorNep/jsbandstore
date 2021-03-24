@@ -10,7 +10,7 @@ import {
 } from './booksTypes';
 
 const initialState = {
-  books: null,
+  books: [],
   searchedBooks: null,
   filteredBooks: null,
   currentBook: null,
