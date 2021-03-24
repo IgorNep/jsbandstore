@@ -1,3 +1,4 @@
+import { showAlert } from 'bus/alert/alertActions';
 import { getBooks, searchBooks, filterByPrice } from 'bus/books/booksActions';
 import {
   loadingSelector,
@@ -7,7 +8,6 @@ import {
   filteredBooksSelector,
 } from 'bus/books/booksSelectors';
 import BookItem from 'components/BookItem';
-import Alert from 'components/common/Alert';
 import Loader from 'components/common/Loader';
 import SearchBox from 'components/common/SearchBox';
 import FilterPriceDropdown from 'components/FiltePricerDropdown';
@@ -22,6 +22,12 @@ const BooksContainer = () => {
   const error = useSelector(errorSelector);
   const searchedBooks = useSelector(searchedBooksSelector);
   const filteredBooks = useSelector(filteredBooksSelector);
+
+  useEffect(() => {
+    if (error) {
+      dispatch(showAlert({ title: error }));
+    }
+  }, [error]);
 
   const submitSearchHandler = (text) => {
     dispatch(searchBooks(text));
@@ -40,9 +46,7 @@ const BooksContainer = () => {
     return <Loader />;
   }
 
-  return error ? (
-    <Alert title={error} />
-  ) : (
+  return (
     <>
       <div className="container">
         <div className={style.boxGroup}>

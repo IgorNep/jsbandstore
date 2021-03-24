@@ -4,13 +4,14 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import style from './styles.module.scss';
 
-const Navbar = ({ username, onLogoutClicked, cartItemsSum = 0 }) => {
+const Navbar = ({ avatar, username, onLogoutClicked, cartItemsSum = 0 }) => {
   return (
     <header>
       <nav className="navbar  navbar-expand-lg ">
         <div className="container">
           <div className={style.navbarItem}>
             <span>{username}</span>
+            <img src={avatar} alt="avatar" className={style.avatarImage} />
             <Button
               title="Sign Out"
               extraClassName="btn-secondary py-2 ml-3"
@@ -37,6 +38,7 @@ Navbar.propTypes = {
   username: PropTypes.string.isRequired,
   onLogoutClicked: PropTypes.func.isRequired,
   cartItemsSum: PropTypes.number.isRequired,
+  avatar: PropTypes.string.isRequired,
 };
 
 export default Navbar;

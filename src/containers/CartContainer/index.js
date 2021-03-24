@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { cartItemsSelector } from 'bus/cart/cartSelectors';
 import CartTable from 'components/CartTable';
@@ -14,8 +14,8 @@ import {
   messageSelector,
 } from 'bus/order/orderSelectors';
 import Loader from 'components/common/Loader';
-import Alert from 'components/common/Alert';
 import { useHistory } from 'react-router-dom';
+import { showAlert } from 'bus/alert/alertActions';
 import style from './styles.module.scss';
 
 const CartContainer = () => {
@@ -26,6 +26,16 @@ const CartContainer = () => {
   const message = useSelector(messageSelector);
   const loading = useSelector(loadingSelector);
   const error = useSelector(errorSelector);
+
+  useEffect(() => {
+    if (error && !loading) {
+      dispatch(
+        showAlert({
+          title: error,
+        })
+      );
+    }
+  }, [error, loading]);
 
   const purchaseHandler = () => {
     dispatch(createOrder(cartItems));
@@ -47,7 +57,6 @@ const CartContainer = () => {
 
   return (
     <>
-      {error && <Alert title={error} />}
       <div className="container">
         <div className={style.btnWrapper}>
           <Button
