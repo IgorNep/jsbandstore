@@ -11,8 +11,8 @@ import {
 
 const initialState = {
   books: [],
-  searchedBooks: null,
   filteredBooks: null,
+  textValue: null,
   currentBook: null,
   loading: false,
   error: null,
@@ -40,7 +40,8 @@ const booksReducer = (state = initialState, action) => {
     case BOOK_SEARCH:
       return {
         ...state,
-        searchedBooks:
+        textValue: action.payload,
+        filteredBooks:
           action.payload === ''
             ? null
             : state.books.filter((book) => {
@@ -51,14 +52,16 @@ const booksReducer = (state = initialState, action) => {
     case BOOK_FILTER_BY_PRICE:
       return {
         ...state,
-        filteredBooks:
-          action.payload === '1'
-            ? state.books.filter((book) => book.price > 0 && book.price < 25)
-            : action.payload === '2'
-            ? state.books.filter((book) => book.price > 25 && book.price < 50)
-            : action.payload === '3'
-            ? state.books.filter((book) => book.price > 50)
-            : null,
+        filteredBooks: state.textValue
+          ? state.books
+              .filter((book) => {
+                const regex = new RegExp(`${state.textValue}`, 'gi');
+                return book.title.match(regex);
+              })
+              .filter(action.payload)
+          : action.data === 0
+          ? null
+          : state.books.filter(action.payload),
       };
     case BOOK_GET_BY_ID_FAIL:
     case BOOKS_GET_FAIL:

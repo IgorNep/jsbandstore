@@ -6,6 +6,7 @@ import { logoutUser } from 'bus/userLogin/userActions';
 import { useHistory } from 'react-router-dom';
 import { cartItemsSelector } from 'bus/cart/cartSelectors';
 import { resetOrderInfo } from 'bus/order/orderActions';
+import getTotalCountInfo from 'utils/helpers/getTotalCountInfo';
 
 const NavbarContainer = () => {
   const dispatch = useDispatch();
@@ -13,9 +14,7 @@ const NavbarContainer = () => {
   const history = useHistory();
   const cartItems = useSelector(cartItemsSelector);
 
-  const totalCartItemsQuantity = cartItems.reduce((acc, book) => {
-    return acc + book.quantity;
-  }, 0);
+  const totalCountInfo = getTotalCountInfo(cartItems);
 
   const onLogoutClicked = () => {
     dispatch(logoutUser());
@@ -28,7 +27,7 @@ const NavbarContainer = () => {
         username={userInfo.username}
         avatar={userInfo.avatar}
         onLogoutClicked={onLogoutClicked}
-        cartItemsSum={totalCartItemsQuantity}
+        cartItemsSum={totalCountInfo}
       />
     </>
   );
