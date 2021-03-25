@@ -63,6 +63,7 @@ npm run lint
 npm run prettier:fix
 
 # On pre-commit using husky (include lint, prettier and test scripts)
+Auto run on pre-commit
 ```
 ##  :ferris_wheel: Dependencies
 NodeJS 14.15.5 
