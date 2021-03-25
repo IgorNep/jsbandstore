@@ -60,6 +60,11 @@ const CartContainer = () => {
       <div className="container">
         <div className={style.btnWrapper}>
           <Button
+            title="Go back"
+            extraClassName="btn-info"
+            onClick={() => history.goBack()}
+          />
+          <Button
             title="Purchase"
             disabled={cartItems.length === 0}
             extraClassName="btn-info"
