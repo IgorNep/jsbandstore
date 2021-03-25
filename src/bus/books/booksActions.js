@@ -9,6 +9,7 @@ import {
   BOOK_SEARCH,
   BOOK_FILTER_BY_PRICE,
 } from './booksTypes';
+import getPriceFilterCondition from './helpers/getPriceFilterCondition';
 
 export const getBooks = () => async (dispatch, getState) => {
   dispatch({ type: BOOKS_GET_REQUEST });
@@ -67,5 +68,10 @@ export const searchBooks = (text) => (dispatch) => {
 };
 
 export const filterByPrice = (priceValue) => (dispatch) => {
-  dispatch({ type: BOOK_FILTER_BY_PRICE, payload: priceValue });
+  const priceFilterCondition = getPriceFilterCondition(+priceValue);
+  dispatch({
+    type: BOOK_FILTER_BY_PRICE,
+    payload: priceFilterCondition,
+    data: +priceValue,
+  });
 };

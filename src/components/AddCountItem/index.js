@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import Button from 'components/common/Button';
+import getTotalCountSingleItem from 'utils/helpers/getTotalPriceSingleItem';
 import style from './styles.module.scss';
 
 const AddCountItem = ({ count, price, onAddToCartClick }) => {
@@ -11,7 +12,11 @@ const AddCountItem = ({ count, price, onAddToCartClick }) => {
   const onChangeHandler = (e) => {
     if (e.target.value >= 0 && e.target.value <= count) {
       setCountValue(Number(e.target.value));
-      setTotalPrice(Number(price * e.target.value).toFixed(2));
+      const item = {
+        price,
+        quantity: e.target.value,
+      };
+      setTotalPrice(getTotalCountSingleItem(item));
       setErrorValue('');
     }
     if (e.target.value > count) {

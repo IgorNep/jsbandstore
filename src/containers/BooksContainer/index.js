@@ -4,8 +4,8 @@ import {
   loadingSelector,
   errorSelector,
   booksSelector,
-  searchedBooksSelector,
   filteredBooksSelector,
+  textValueSelector,
 } from 'bus/books/booksSelectors';
 import BookItem from 'components/BookItem';
 import Loader from 'components/common/Loader';
@@ -20,8 +20,8 @@ const BooksContainer = () => {
   const books = useSelector(booksSelector);
   const loading = useSelector(loadingSelector);
   const error = useSelector(errorSelector);
-  const searchedBooks = useSelector(searchedBooksSelector);
   const filteredBooks = useSelector(filteredBooksSelector);
+  const textValue = useSelector(textValueSelector);
 
   useEffect(() => {
     if (error) {
@@ -37,7 +37,7 @@ const BooksContainer = () => {
     dispatch(filterByPrice(priceValue));
   };
 
-  const booksToRender = searchedBooks || filteredBooks || books;
+  const booksToRender = filteredBooks || books;
   useEffect(() => {
     dispatch(getBooks());
   }, []);
@@ -51,20 +51,24 @@ const BooksContainer = () => {
       <div className="container">
         <div className={style.boxGroup}>
           <SearchBox submitSearchHandler={submitSearchHandler} />
-          <FilterPriceDropdown filterHandler={filterHandler} />
+          <FilterPriceDropdown
+            filterHandler={filterHandler}
+            textValue={textValue}
+          />
         </div>
         <div className={style.booksWrapper}>
-          {booksToRender &&
-            booksToRender.map((book) => (
-              <BookItem
-                key={book.id}
-                id={book.id}
-                title={book.title}
-                author={book.author}
-                price={book.price}
-                cover={book.cover}
-              />
-            ))}
+          {booksToRender && booksToRender.length > 0
+            ? booksToRender.map((book) => (
+                <BookItem
+                  key={book.id}
+                  id={book.id}
+                  title={book.title}
+                  author={book.author}
+                  price={book.price}
+                  cover={book.cover}
+                />
+              ))
+            : booksToRender && <h5>Books Not found...</h5>}
         </div>
       </div>
     </>

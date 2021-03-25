@@ -1,12 +1,12 @@
 /* eslint-disable react/forbid-prop-types */
 import React from 'react';
 import PropTypes from 'prop-types';
+import getTotalPriceInfo from 'utils/helpers/getTotalPriceInfo';
+import getTotalCountSingleItem from 'utils/helpers/getTotalPriceSingleItem';
 import style from './styles.module.scss';
 
 const CartTable = ({ cartItems }) => {
-  const totalPriceInfo = cartItems.reduce((acc, item) => {
-    return acc + item.quantity * item.price;
-  }, 0);
+  const totalPriceInfo = getTotalPriceInfo(cartItems);
 
   return (
     <div className={style.cartTable}>
@@ -25,13 +25,13 @@ const CartTable = ({ cartItems }) => {
               <td>{item.title}</td>
               <td> {item.quantity}</td>
               <td> {item.price}</td>
-              <td>{(item.price * item.quantity).toFixed(2)}</td>
+              <td>{getTotalCountSingleItem(item)}</td>
             </tr>
           ))}
         </tbody>
       </table>
       <div className={style.totalPriceInfo}>
-        Total Price: {totalPriceInfo.toFixed(2)} $
+        Total Price: {totalPriceInfo} $
       </div>
     </div>
   );
