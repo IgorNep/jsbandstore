@@ -2,7 +2,7 @@
 
 **Online Book Store. Buy books easily from anywhere in the world.**  
 
-![](https://res.cloudinary.com/dl7s75ubb/image/upload/v1616693997/Timetable%20app/bookshop_tfvjxi.jpg)
+![](https://res.cloudinary.com/dl7s75ubb/image/upload/v1616694080/Timetable%20app/bookshop_gponog.jpg)
 
 ## :blue_heart: :tada: Why is this so awesome?
 
