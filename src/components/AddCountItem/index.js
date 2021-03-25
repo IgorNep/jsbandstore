@@ -4,10 +4,12 @@ import Button from 'components/common/Button';
 import getTotalCountSingleItem from 'utils/helpers/getTotalPriceSingleItem';
 import style from './styles.module.scss';
 
-const AddCountItem = ({ count, price, onAddToCartClick }) => {
-  const [countValue, setCountValue] = useState(0);
+const AddCountItem = ({ count, price, quantity, onAddToCartClick }) => {
+  const [countValue, setCountValue] = useState(quantity);
   const [errorValue, setErrorValue] = useState('');
-  const [totalPrice, setTotalPrice] = useState(0);
+  const [totalPrice, setTotalPrice] = useState(
+    getTotalCountSingleItem({ price, quantity })
+  );
 
   const onChangeHandler = (e) => {
     if (e.target.value >= 0 && e.target.value <= count) {
@@ -56,5 +58,9 @@ AddCountItem.propTypes = {
   count: PropTypes.number.isRequired,
   price: PropTypes.number.isRequired,
   onAddToCartClick: PropTypes.func.isRequired,
+  quantity: PropTypes.number,
+};
+AddCountItem.defaultProps = {
+  quantity: 0,
 };
 export default AddCountItem;

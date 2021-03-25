@@ -9,19 +9,24 @@ import BookDetailsItem from 'components/BookDetailsItem';
 import Loader from 'components/common/Loader';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 import { addBook } from 'bus/cart/cartActions';
-import { cartLoadingSelector } from 'bus/cart/cartSelectors';
+import { cartItemsSelector, cartLoadingSelector } from 'bus/cart/cartSelectors';
 import { showAlert } from 'bus/alert/alertActions';
+import Button from 'components/common/Button';
 import style from './styles.module.scss';
 
 const BookDetailsContainer = () => {
   const dispatch = useDispatch();
+  const history = useHistory();
   const params = useParams();
   const loading = useSelector(loadingSelector);
   const error = useSelector(errorSelector);
   const book = useSelector(currentBookSelector);
   const cartLoading = useSelector(cartLoadingSelector);
+  const cartItems = useSelector(cartItemsSelector);
+
+  const bookItem = cartItems.find((item) => item.id === book.id);
 
   useEffect(() => {
     dispatch(getBookById(params.id));
@@ -57,6 +62,11 @@ const BookDetailsContainer = () => {
     book && (
       <>
         <div className="container">
+          <Button
+            title="Go back"
+            extraClassName="btn-info"
+            onClick={() => history.goBack()}
+          />
           <div className={style.bookDetailsWrapper}>
             <BookDetailsItem book={book} />
             <>
@@ -66,6 +76,7 @@ const BookDetailsContainer = () => {
                 <AddCountItem
                   count={book.count}
                   price={book.price}
+                  quantity={bookItem && bookItem.quantity}
                   onAddToCartClick={onAddToCartClick}
                 />
               )}
