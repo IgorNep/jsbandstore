@@ -62,6 +62,7 @@ npm run lint
 #check your code and format it using mentioned rules
 npm run prettier:fix
 
+# On pre-commit using husky (include lint, prettier and test scripts)
 ```
 ##  :ferris_wheel: Dependencies
 NodeJS 14.15.5 
