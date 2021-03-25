@@ -30,7 +30,7 @@ npm install
 ## Running scripts
 You can use the provided Makefile to run all tests by using:
 
-sh ```
+ ``` sh
 npm run start
 ```
 Will run app on the local machine
