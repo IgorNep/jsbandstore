@@ -6,7 +6,7 @@
 
 ## :blue_heart: :tada: Why is this so awesome?
 
-* :rocket: **Different kind of books!** Like JavaScript, NodeJS, Testing, Angulare and more
+* :rocket: **Different kind of books!** Like JavaScript, NodeJS, Testing, Angular and more
 * :globe_with_meridians: **Shipping around the globe!** You can get your books from any part of the world!
 * :watch: **Fast delivery!** We use our own jets to deliver books.
 * :mag: **Search!** Find your books at ease
