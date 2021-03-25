@@ -27,11 +27,32 @@ npm install
 * Internet Explorer 11
 * Safari 12.1+
 
-## Running scripts
-You can use the provided Makefile to run all tests by using:
+## Available scripts
 
- ``` sh
+``` bash
+# run app on your local machine
 npm run start
+
+# create production build folder
+npm run build
+
+# remove the single build dependency from your project.
+npm run eject
+
+# test your app
+npm run test
+
+# testing when using pre-commit hook
+npm run test:staged
+
+# check your code with airbnb stylequide and shows errors
+npm run lint
+
+#check your code and format it using mentioned rules
+npm run prettier:fix
+
 ```
-Will run app on the local machine
+## Dependencies
+Nodejs 14.15.5 
+
 
