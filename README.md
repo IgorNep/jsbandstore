@@ -12,7 +12,7 @@
 * :mag: **Search!** Find your books at ease
 * :ballot_box_with_check: **Low prices!** We have lowest prices in market of books
 
-## Usage
+## :surfer: Usage
 * Authorize by entering your name but enter valid username (min 4 characters and max 16 characters)
 * After succeed authorization you will redirect to books page with list of books
 * You can click view to see details of any book
