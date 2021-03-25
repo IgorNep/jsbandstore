@@ -53,6 +53,6 @@ npm run prettier:fix
 
 ```
 ## Dependencies
-Nodejs 14.15.5 
+NodeJS 14.15.5 
 
 
