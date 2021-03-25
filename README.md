@@ -38,7 +38,7 @@ npm install
 * Internet Explorer 11
 * Safari 12.1+
 
-## Available scripts
+## :scroll: Available scripts
 
 ``` bash
 # run app on your local machine
@@ -63,7 +63,7 @@ npm run lint
 npm run prettier:fix
 
 ```
-## Dependencies
+##  :ferris_wheel: Dependencies
 NodeJS 14.15.5 
 
 
