@@ -10,7 +10,7 @@
 * :globe_with_meridians: **Shipping around the globe!** You can get your books from any part of the world!
 * :watch: **Fast delivery!** We use our own jets to deliver books.
 * :mag: **Search!** Find your books at ease
-* :ballot_box_with_check: **Low prices!** We have low prices in market of books
+* :ballot_box_with_check: **Low prices!** We have lowest prices in market of books
 
 ## :hammer_and_wrench: Installation
 
