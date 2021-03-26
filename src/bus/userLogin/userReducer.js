@@ -5,24 +5,35 @@ import {
   USER_LOGOUT,
 } from './userTypes';
 
-const userLoginReducer = (state = {}, action) => {
+const initialState = {
+  loading: false,
+  userInfo: null,
+  error: null,
+};
+
+const userLoginReducer = (state = initialState, action) => {
   switch (action.type) {
     case USER_LOGIN_REQUEST:
       return {
+        ...state,
         loading: true,
       };
     case USER_LOGIN_SUCCESS:
       return {
+        ...state,
         userInfo: action.payload,
+        error: null,
         loading: false,
       };
     case USER_LOGIN_FAIL:
       return {
+        ...state,
         error: action.payload,
+        userInfo: null,
         loading: false,
       };
     case USER_LOGOUT:
-      return {};
+      return initialState;
     default:
       return state;
   }

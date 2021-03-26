@@ -1,10 +1,14 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import Button from 'components/common/Button';
-import getTotalCountSingleItem from 'utils/helpers/getTotalPriceSingleItem';
+import getTotalCountSingleItem from 'utils/helpers/getTotal/getTotalPriceSingleItem';
+import {
+  validateCountAmount,
+  validateCountOnLimit,
+} from 'utils/helpers/validation/validateCountAmount';
 import style from './styles.module.scss';
 
-const AddCountItem = ({ count, price, quantity, onAddToCartClick }) => {
+const AddCountItem = ({ countInStock, price, quantity, onAddToCartClick }) => {
   const [countValue, setCountValue] = useState(quantity);
   const [errorValue, setErrorValue] = useState('');
   const [totalPrice, setTotalPrice] = useState(
@@ -12,17 +16,18 @@ const AddCountItem = ({ count, price, quantity, onAddToCartClick }) => {
   );
 
   const onChangeHandler = (e) => {
-    if (e.target.value >= 0 && e.target.value <= count) {
-      setCountValue(Number(e.target.value));
+    const inputCountValue = +e.target.value;
+    if (validateCountAmount(inputCountValue, countInStock)) {
+      setCountValue(inputCountValue);
       const item = {
         price,
-        quantity: e.target.value,
+        quantity: inputCountValue,
       };
       setTotalPrice(getTotalCountSingleItem(item));
       setErrorValue('');
     }
-    if (e.target.value > count) {
-      setErrorValue(`We have only ${count} books in stock`);
+    if (validateCountOnLimit(inputCountValue, countInStock)) {
+      setErrorValue(`We have only ${countInStock} books in stock`);
     }
   };
   return (
@@ -55,7 +60,7 @@ const AddCountItem = ({ count, price, quantity, onAddToCartClick }) => {
 };
 
 AddCountItem.propTypes = {
-  count: PropTypes.number.isRequired,
+  countInStock: PropTypes.number.isRequired,
   price: PropTypes.number.isRequired,
   onAddToCartClick: PropTypes.func.isRequired,
   quantity: PropTypes.number,

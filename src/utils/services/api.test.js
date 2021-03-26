@@ -18,6 +18,13 @@ describe('axios requests should work', () => {
     const data = await apiService.getData();
     expect(data).toEqual(books);
   });
+
+  test('should fetch successfully data by id ', async () => {
+    axios.get.mockResolvedValue(response);
+
+    const data = await apiService.getDataById();
+    expect(data).toEqual(books);
+  });
 });
 
 describe('serviceApi should work', () => {
