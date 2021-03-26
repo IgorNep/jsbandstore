@@ -30,6 +30,7 @@ const booksReducer = (state = initialState, action) => {
         ...state,
         loading: false,
         books: action.payload,
+        error: null,
       };
     case BOOK_GET_BY_ID_SUCCESS:
       return {
@@ -69,6 +70,8 @@ const booksReducer = (state = initialState, action) => {
         ...state,
         loading: false,
         error: action.payload,
+        books: [],
+        filteredBooks: null,
       };
 
     default:
