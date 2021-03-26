@@ -26,7 +26,8 @@ const BookDetailsContainer = () => {
   const cartLoading = useSelector(cartLoadingSelector);
   const cartItems = useSelector(cartItemsSelector);
 
-  const bookItem = cartItems.find((item) => item.id === book.id);
+  const bookItem =
+    cartItems && book && cartItems.find((item) => item.id === book.id);
 
   useEffect(() => {
     dispatch(getBookById(params.id));
@@ -74,7 +75,7 @@ const BookDetailsContainer = () => {
                 <Loader />
               ) : (
                 <AddCountItem
-                  count={book.count}
+                  countInStock={book.count}
                   price={book.price}
                   quantity={bookItem && bookItem.quantity}
                   onAddToCartClick={onAddToCartClick}

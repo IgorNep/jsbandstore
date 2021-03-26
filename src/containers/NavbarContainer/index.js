@@ -6,7 +6,7 @@ import { logoutUser } from 'bus/userLogin/userActions';
 import { useHistory } from 'react-router-dom';
 import { cartItemsSelector } from 'bus/cart/cartSelectors';
 import { resetOrderInfo } from 'bus/order/orderActions';
-import getTotalCountInfo from 'utils/helpers/getTotalCountInfo';
+import getTotalCountInfo from 'utils/helpers/getTotal/getTotalCountInfo';
 
 const NavbarContainer = () => {
   const dispatch = useDispatch();

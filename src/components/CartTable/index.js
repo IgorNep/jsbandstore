@@ -1,8 +1,8 @@
 /* eslint-disable react/forbid-prop-types */
 import React from 'react';
 import PropTypes from 'prop-types';
-import getTotalPriceInfo from 'utils/helpers/getTotalPriceInfo';
-import getTotalCountSingleItem from 'utils/helpers/getTotalPriceSingleItem';
+import getTotalPriceInfo from 'utils/helpers/getTotal/getTotalPriceInfo';
+import getTotalCountSingleItem from 'utils/helpers/getTotal/getTotalPriceSingleItem';
 import style from './styles.module.scss';
 
 const CartTable = ({ cartItems }) => {

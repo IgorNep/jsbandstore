@@ -23,11 +23,13 @@ const orderReducer = (state = initialState, action) => {
         ...state,
         loading: false,
         message: action.payload,
+        error: null,
       };
     case ORDER_CREATE_FAIL:
       return {
         ...state,
         loading: false,
+        message: null,
         error: action.payload,
       };
     case ORDER_RESET:

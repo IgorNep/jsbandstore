@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import picLogin from 'assets/images/login_pic.jpg';
+import validateLoginInput from 'utils/helpers/validation/validateLogin';
 import styles from './styles.module.scss';
 
 const LoginForm = ({ onLoginSubmit }) => {
@@ -8,7 +9,7 @@ const LoginForm = ({ onLoginSubmit }) => {
   const [error, setError] = useState(false);
   const onSubmit = (e) => {
     e.preventDefault();
-    if (username.length < 4 || username.length > 16) {
+    if (validateLoginInput(username)) {
       setError(true);
     } else {
       onLoginSubmit(username);

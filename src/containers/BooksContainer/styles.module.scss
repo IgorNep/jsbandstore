@@ -10,3 +10,20 @@
     justify-content: flex-start;
     align-items: center;
 }
+
+
+@media (max-width:960px){
+    .booksWrapper {
+        grid-template-columns: repeat(3,1fr);
+    }
+}
+@media (max-width:720px){
+    .booksWrapper {
+        grid-template-columns: repeat(2,1fr);
+    }
+}
+@media (max-width:540px){
+    .booksWrapper {
+        grid-template-columns: 1fr;
+    }
+}
