@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/jsbandbookshop/static/css/main.819f5911.chunk.css",
+    "main.js": "/jsbandbookshop/static/js/main.205e66e3.chunk.js",
+    "main.js.map": "/jsbandbookshop/static/js/main.205e66e3.chunk.js.map",
+    "runtime-main.js": "/jsbandbookshop/static/js/runtime-main.07e5769b.js",
+    "runtime-main.js.map": "/jsbandbookshop/static/js/runtime-main.07e5769b.js.map",
+    "static/js/2.f5f65aea.chunk.js": "/jsbandbookshop/static/js/2.f5f65aea.chunk.js",
+    "static/js/2.f5f65aea.chunk.js.map": "/jsbandbookshop/static/js/2.f5f65aea.chunk.js.map",
+    "index.html": "/jsbandbookshop/index.html",
+    "static/css/main.819f5911.chunk.css.map": "/jsbandbookshop/static/css/main.819f5911.chunk.css.map",
+    "static/js/2.f5f65aea.chunk.js.LICENSE.txt": "/jsbandbookshop/static/js/2.f5f65aea.chunk.js.LICENSE.txt",
+    "static/media/cat.37830ce8.jfif": "/jsbandbookshop/static/media/cat.37830ce8.jfif",
+    "static/media/index.scss": "/jsbandbookshop/static/media/fontawesome-webfont.f691f37e.woff",
+    "static/media/login_pic.38f6836f.jpg": "/jsbandbookshop/static/media/login_pic.38f6836f.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.07e5769b.js",
+    "static/js/2.f5f65aea.chunk.js",
+    "static/css/main.819f5911.chunk.css",
+    "static/js/main.205e66e3.chunk.js"
+  ]
+}
