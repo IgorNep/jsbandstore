@@ -7,8 +7,21 @@ import {
   ORDER_RESET,
 } from './orderTypes';
 
-export const createOrder = (books) => async (dispatch, getState) => {
-  dispatch({ type: ORDER_CREATE_REQUSET });
+const createOrderRequest = () => ({ type: ORDER_CREATE_REQUSET });
+const createOrderSuccess = (message) => ({
+  type: ORDER_CREATE_SUCCESS,
+  payload: message,
+});
+const createOrderFail = (error) => ({
+  type: ORDER_CREATE_FAIL,
+  payload:
+    error.response && error.response.data.message
+      ? error.response.data.message
+      : error.message,
+});
+
+const createOrder = (books) => async (dispatch, getState) => {
+  dispatch(createOrderRequest());
   try {
     const {
       userLogin: { userInfo },
@@ -25,18 +38,18 @@ export const createOrder = (books) => async (dispatch, getState) => {
       books,
     };
     const res = await apiService.postData(PURCHASE, formData, config);
-    dispatch({ type: ORDER_CREATE_SUCCESS, payload: res.message });
+    dispatch(createOrderSuccess(res.message));
   } catch (error) {
-    dispatch({
-      type: ORDER_CREATE_FAIL,
-      payload:
-        error.response && error.response.data.message
-          ? error.response.data.message
-          : error.message,
-    });
+    dispatch(createOrderFail(error));
   }
 };
 
-export const resetOrderInfo = () => (dispatch) => {
-  dispatch({ type: ORDER_RESET });
+const resetOrderInfo = () => ({ type: ORDER_RESET });
+
+export {
+  createOrder,
+  createOrderRequest,
+  createOrderFail,
+  createOrderSuccess,
+  resetOrderInfo,
 };

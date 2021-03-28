@@ -9,7 +9,7 @@ import {
 } from 'bus/userLogin/userSelectors';
 import { useHistory } from 'react-router-dom';
 import Loader from 'components/common/Loader';
-import { showAlert } from 'bus/alert/alertActions';
+import { setAlert } from 'bus/alert/alertActions';
 
 const LoginContainer = () => {
   const dispatch = useDispatch();
@@ -26,7 +26,7 @@ const LoginContainer = () => {
 
   useEffect(() => {
     if (error) {
-      dispatch(showAlert({ title: error }));
+      dispatch(setAlert({ title: error }));
     }
   }, [error]);
   const onLoginSubmit = (username) => {

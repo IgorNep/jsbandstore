@@ -3,6 +3,7 @@ import {
   USER_LOGIN_SUCCESS,
   USER_LOGIN_FAIL,
   USER_LOGOUT,
+  USER_LOGOUT_REQUEST,
 } from './userTypes';
 
 const initialState = {
@@ -13,6 +14,7 @@ const initialState = {
 
 const userLoginReducer = (state = initialState, action) => {
   switch (action.type) {
+    case USER_LOGOUT_REQUEST:
     case USER_LOGIN_REQUEST:
       return {
         ...state,

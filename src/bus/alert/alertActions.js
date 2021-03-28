@@ -1,12 +1,14 @@
 import { HIDE_ALERT, SHOW_ALERT } from './alretTypes';
 
-const hideAlert = () => (dispatch) => dispatch({ type: HIDE_ALERT });
+const hideAlert = () => ({ type: HIDE_ALERT });
 
-const showAlert = (alert, ms = 2000) => (dispatch) => {
-  dispatch({ type: SHOW_ALERT, payload: alert });
+const showAlert = (alert) => ({ type: SHOW_ALERT, payload: alert });
+
+const setAlert = (alert, ms = 2000) => (dispatch) => {
+  dispatch(showAlert(alert));
 
   setTimeout(() => {
-    dispatch({ type: HIDE_ALERT });
+    dispatch(hideAlert());
   }, ms);
 };
-export { hideAlert, showAlert };
+export { hideAlert, showAlert, setAlert };

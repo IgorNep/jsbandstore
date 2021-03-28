@@ -2,7 +2,6 @@ import {
   booksSelector,
   textValueSelector,
   filteredBooksSelector,
-  currentBookSelector,
   loadingSelector,
   errorSelector,
 } from './booksSelectors';
@@ -38,9 +37,7 @@ describe('should return appropriate selectors', () => {
   test('should return appropriate value from filtered books selector', () => {
     expect(filteredBooksSelector(dummyState)).toEqual(mockFilteredBooks);
   });
-  test('should return appropriate value from current book selector', () => {
-    expect(currentBookSelector(dummyState)).toEqual(mockCurrentBook);
-  });
+
   test('should return appropriate value from loading selector', () => {
     expect(loadingSelector(dummyState)).toEqual(mockLoading);
   });

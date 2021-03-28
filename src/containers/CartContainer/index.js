@@ -15,7 +15,7 @@ import {
 } from 'bus/order/orderSelectors';
 import Loader from 'components/common/Loader';
 import { useHistory } from 'react-router-dom';
-import { showAlert } from 'bus/alert/alertActions';
+import { setAlert } from 'bus/alert/alertActions';
 import style from './styles.module.scss';
 
 const CartContainer = () => {
@@ -30,7 +30,7 @@ const CartContainer = () => {
   useEffect(() => {
     if (error && !loading) {
       dispatch(
-        showAlert({
+        setAlert({
           title: error,
         })
       );
