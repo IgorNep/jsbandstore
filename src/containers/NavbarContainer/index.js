@@ -7,6 +7,7 @@ import { useHistory } from 'react-router-dom';
 import { cartItemsSelector } from 'bus/cart/cartSelectors';
 import { resetOrderInfo } from 'bus/order/orderActions';
 import getTotalCountInfo from 'utils/helpers/getTotal/getTotalCountInfo';
+import { clearBooks } from 'bus/books/booksActions';
 
 const NavbarContainer = () => {
   const dispatch = useDispatch();
@@ -19,6 +20,7 @@ const NavbarContainer = () => {
   const onLogoutClicked = () => {
     dispatch(logoutUser());
     dispatch(resetOrderInfo());
+    dispatch(clearBooks());
     history.push('/login');
   };
   return (

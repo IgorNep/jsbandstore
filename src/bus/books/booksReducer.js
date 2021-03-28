@@ -5,6 +5,7 @@ import {
   BOOKS_GET_SUCCESS,
   BOOK_SEARCH,
   BOOK_FILTER_BY_PRICE,
+  BOOKS_CLEAR,
 } from './booksTypes';
 
 const initialState = {
@@ -63,7 +64,8 @@ const booksReducer = (state = initialState, action) => {
         books: [],
         filteredBooks: null,
       };
-
+    case BOOKS_CLEAR:
+      return initialState;
     default:
       return state;
   }

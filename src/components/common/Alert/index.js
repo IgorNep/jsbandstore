@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 const defaultStyle = {
   width: '100%',
-  position: 'absolute',
+  position: 'fixed',
   top: 0,
   left: 0,
   zIndex: 999,

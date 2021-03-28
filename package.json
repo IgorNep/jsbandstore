@@ -2,7 +2,7 @@
   "name": "bookshop",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://IgorNep.github.io/jsbandbookshop",
+  "homepage": "https://IgorNep.github.io/jsbandstore",
   "engines": {
     "node": "14.x"
   },

@@ -7,14 +7,29 @@
     width: 100%;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     margin-bottom: 1rem;
 
-    input{
-        width: 3rem;
-        padding-left:0.2rem;
-    }
 }
 .buttonGroup{
     display: flex;
     justify-content: flex-end;
+}
+.inputGroup{
+    display: flex;
+    
+    input{
+      width: 2rem;
+      border:1px solid grey;
+      border-radius: 5px;
+      outline: none;
+      padding: 0;
+      text-align: center;
+    }
+    .countBtn{
+        padding: 0.2rem 0.7rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 }

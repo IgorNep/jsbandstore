@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { cartItemsSelector } from 'bus/cart/cartSelectors';
 import CartTable from 'components/CartTable';
@@ -16,6 +16,7 @@ import {
 import Loader from 'components/common/Loader';
 import { useHistory } from 'react-router-dom';
 import { setAlert } from 'bus/alert/alertActions';
+import { clearBooks } from 'bus/books/booksActions';
 import style from './styles.module.scss';
 
 const CartContainer = () => {
@@ -26,6 +27,7 @@ const CartContainer = () => {
   const message = useSelector(messageSelector);
   const loading = useSelector(loadingSelector);
   const error = useSelector(errorSelector);
+  const [showLoader, setShowLoader] = useState(false);
 
   useEffect(() => {
     if (error && !loading) {
@@ -37,14 +39,22 @@ const CartContainer = () => {
     }
   }, [error, loading]);
 
+  useEffect(() => {
+    setShowLoader(true);
+    setTimeout(() => {
+      setShowLoader(false);
+    }, 500);
+  }, []);
+
   const purchaseHandler = () => {
     dispatch(createOrder(cartItems));
+    dispatch(clearBooks());
   };
 
   if (message) {
     dispatch(openModal());
   }
-  if (loading) {
+  if (loading || showLoader) {
     return <Loader />;
   }
 

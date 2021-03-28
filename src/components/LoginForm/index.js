@@ -7,6 +7,7 @@ import styles from './styles.module.scss';
 const LoginForm = ({ onLoginSubmit }) => {
   const [username, setUserName] = useState('');
   const [error, setError] = useState(false);
+
   const onSubmit = (e) => {
     e.preventDefault();
     if (validateLoginInput(username)) {
@@ -36,9 +37,12 @@ const LoginForm = ({ onLoginSubmit }) => {
                 value={username}
                 className="form-control w-100"
                 onChange={(e) => setUserName(e.target.value)}
+                title="loginInputTest"
               />
               {error && (
-                <small className="text-danger">Username is not valid</small>
+                <small className="text-danger" title="errorTitleForTest">
+                  Username is not valid
+                </small>
               )}
             </label>
           </div>
@@ -46,6 +50,7 @@ const LoginForm = ({ onLoginSubmit }) => {
             type="submit"
             value="Login"
             className="btn btn-block btn-info"
+            title="LoginSubmitButton"
           />
         </form>
       </div>

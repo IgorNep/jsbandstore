@@ -1,5 +1,6 @@
 import booksReducer from './booksReducer';
 import {
+  BOOKS_CLEAR,
   BOOKS_GET_FAIL,
   BOOKS_GET_REQUEST,
   BOOKS_GET_SUCCESS,
@@ -19,6 +20,16 @@ const books = [
 describe('books state should be set to appropriate values', () => {
   test('should retrun initial state', () => {
     const newState = booksReducer(undefined, {});
+    expect(newState).toEqual({
+      books: [],
+      filteredBooks: null,
+      textValue: null,
+      loading: false,
+      error: null,
+    });
+  });
+  test('should return initial state', () => {
+    const newState = booksReducer([], { type: BOOKS_CLEAR });
     expect(newState).toEqual({
       books: [],
       filteredBooks: null,
