@@ -1,6 +1,6 @@
 # JS Band Book Store 
 
-**Online Book Store. Buy books easily from anywhere in the world.** <a href="https://igornep.github.io/jsbandstore/">View Demo</a>  
+**Online Book Store. Buy books easily from anywhere in the world.** <a href="https://igornep.github.io/jsbandstore/" target="_blank">View Demo</a>  
 
 ![](https://res.cloudinary.com/dl7s75ubb/image/upload/v1616694080/Timetable%20app/bookshop_gponog.jpg)
 
