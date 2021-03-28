@@ -1,9 +1,9 @@
-import { getBookById } from 'bus/books/booksActions';
+import { getBookById } from 'bus/currentBook/currentBookActions';
 import {
   currentBookSelector,
   errorSelector,
   loadingSelector,
-} from 'bus/books/booksSelectors';
+} from 'bus/currentBook/currentBookSelectors';
 import AddCountItem from 'components/AddCountItem';
 import BookDetailsItem from 'components/BookDetailsItem';
 import Loader from 'components/common/Loader';
@@ -12,7 +12,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
 import { addBook } from 'bus/cart/cartActions';
 import { cartItemsSelector, cartLoadingSelector } from 'bus/cart/cartSelectors';
-import { showAlert } from 'bus/alert/alertActions';
+import { setAlert } from 'bus/alert/alertActions';
 import Button from 'components/common/Button';
 import style from './styles.module.scss';
 
@@ -36,7 +36,7 @@ const BookDetailsContainer = () => {
   useEffect(() => {
     if (error) {
       dispatch(
-        showAlert({
+        setAlert({
           title: error,
         })
       );
@@ -47,7 +47,7 @@ const BookDetailsContainer = () => {
     dispatch(addBook({ ...book, quantity }));
     setTimeout(() => {
       dispatch(
-        showAlert({
+        setAlert({
           title: 'Your order successfully added to the cart!',
           type: 'success',
         })

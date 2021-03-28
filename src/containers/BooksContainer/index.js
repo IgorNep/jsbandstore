@@ -1,4 +1,4 @@
-import { showAlert } from 'bus/alert/alertActions';
+import { setAlert } from 'bus/alert/alertActions';
 import { getBooks, searchBooks, filterByPrice } from 'bus/books/booksActions';
 import {
   loadingSelector,
@@ -25,7 +25,7 @@ const BooksContainer = () => {
 
   useEffect(() => {
     if (error) {
-      dispatch(showAlert({ title: error }));
+      dispatch(setAlert({ title: error }));
     }
   }, [error]);
 

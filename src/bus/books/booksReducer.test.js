@@ -3,8 +3,6 @@ import {
   BOOKS_GET_FAIL,
   BOOKS_GET_REQUEST,
   BOOKS_GET_SUCCESS,
-  BOOK_GET_BY_ID_FAIL,
-  BOOK_GET_BY_ID_SUCCESS,
   BOOK_FILTER_BY_PRICE,
   BOOK_SEARCH,
 } from './booksTypes';
@@ -18,11 +16,6 @@ const books = [
   { id: 5, title: 'Book about nothing', price: 60 },
 ];
 
-const singleBook = {
-  id: 33,
-  title: 'Hello world',
-};
-
 describe('books state should be set to appropriate values', () => {
   test('should retrun initial state', () => {
     const newState = booksReducer(undefined, {});
@@ -30,7 +23,6 @@ describe('books state should be set to appropriate values', () => {
       books: [],
       filteredBooks: null,
       textValue: null,
-      currentBook: null,
       loading: false,
       error: null,
     });
@@ -65,30 +57,6 @@ describe('books state should be set to appropriate values', () => {
       payload: books,
     });
     expect(newState.books).toEqual([]);
-  });
-
-  test('should handle get book by id', () => {
-    const newState = booksReducer([], {
-      type: BOOK_GET_BY_ID_SUCCESS,
-      payload: singleBook,
-    });
-    expect(newState).toEqual({
-      loading: false,
-      currentBook: singleBook,
-    });
-  });
-
-  test('should handle get book by id fail', () => {
-    const newState = booksReducer([], {
-      type: BOOK_GET_BY_ID_FAIL,
-      payload: 'error message',
-    });
-    expect(newState).toEqual({
-      loading: false,
-      error: 'error message',
-      books: [],
-      filteredBooks: null,
-    });
   });
 });
 

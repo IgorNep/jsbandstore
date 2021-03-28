@@ -1,9 +1,13 @@
 import { CART_ADD_BOOK, CART_ADD_REQUEST, CART_CLEAR } from './cartTypes';
 
-export const addBook = (book) => (dispatch, getState) => {
-  dispatch({ type: CART_ADD_REQUEST });
+const cartAddRequest = () => ({ type: CART_ADD_REQUEST });
+const cartAddSuccess = (book) => ({ type: CART_ADD_BOOK, payload: book });
+const clearCartSuccess = () => ({ type: CART_CLEAR });
+
+const addBook = (book) => (dispatch, getState) => {
+  dispatch(cartAddRequest());
   setTimeout(() => {
-    dispatch({ type: CART_ADD_BOOK, payload: book });
+    dispatch(cartAddSuccess(book));
     localStorage.setItem(
       'cartItems',
       JSON.stringify(getState().cart.cartItems)
@@ -11,7 +15,9 @@ export const addBook = (book) => (dispatch, getState) => {
   }, 500);
 };
 
-export const clearCart = () => (dispatch) => {
-  dispatch({ type: CART_CLEAR });
+const clearCart = () => (dispatch) => {
+  dispatch(clearCartSuccess());
   localStorage.removeItem('cartItems');
 };
+
+export { cartAddRequest, cartAddSuccess, addBook, clearCart, clearCartSuccess };
