@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/bookstore/static/css/main.0d227f7a.chunk.css",
-    "main.js": "/bookstore/static/js/main.8ac8cdcf.chunk.js",
-    "main.js.map": "/bookstore/static/js/main.8ac8cdcf.chunk.js.map",
-    "runtime-main.js": "/bookstore/static/js/runtime-main.3cea302f.js",
-    "runtime-main.js.map": "/bookstore/static/js/runtime-main.3cea302f.js.map",
-    "static/js/2.7dc81264.chunk.js": "/bookstore/static/js/2.7dc81264.chunk.js",
-    "static/js/2.7dc81264.chunk.js.map": "/bookstore/static/js/2.7dc81264.chunk.js.map",
-    "index.html": "/bookstore/index.html",
-    "static/css/main.0d227f7a.chunk.css.map": "/bookstore/static/css/main.0d227f7a.chunk.css.map",
-    "static/js/2.7dc81264.chunk.js.LICENSE.txt": "/bookstore/static/js/2.7dc81264.chunk.js.LICENSE.txt",
-    "static/media/cat.37830ce8.jfif": "/bookstore/static/media/cat.37830ce8.jfif",
-    "static/media/index.scss": "/bookstore/static/media/fontawesome-webfont.f691f37e.woff",
-    "static/media/login_pic.38f6836f.jpg": "/bookstore/static/media/login_pic.38f6836f.jpg"
+    "main.css": "/jsbandstore/static/css/main.8597e41e.chunk.css",
+    "main.js": "/jsbandstore/static/js/main.8ac8cdcf.chunk.js",
+    "main.js.map": "/jsbandstore/static/js/main.8ac8cdcf.chunk.js.map",
+    "runtime-main.js": "/jsbandstore/static/js/runtime-main.871a3b77.js",
+    "runtime-main.js.map": "/jsbandstore/static/js/runtime-main.871a3b77.js.map",
+    "static/js/2.7dc81264.chunk.js": "/jsbandstore/static/js/2.7dc81264.chunk.js",
+    "static/js/2.7dc81264.chunk.js.map": "/jsbandstore/static/js/2.7dc81264.chunk.js.map",
+    "index.html": "/jsbandstore/index.html",
+    "static/css/main.8597e41e.chunk.css.map": "/jsbandstore/static/css/main.8597e41e.chunk.css.map",
+    "static/js/2.7dc81264.chunk.js.LICENSE.txt": "/jsbandstore/static/js/2.7dc81264.chunk.js.LICENSE.txt",
+    "static/media/cat.37830ce8.jfif": "/jsbandstore/static/media/cat.37830ce8.jfif",
+    "static/media/index.scss": "/jsbandstore/static/media/fontawesome-webfont.f691f37e.woff",
+    "static/media/login_pic.38f6836f.jpg": "/jsbandstore/static/media/login_pic.38f6836f.jpg"
   },
   "entrypoints": [
-    "static/js/runtime-main.3cea302f.js",
+    "static/js/runtime-main.871a3b77.js",
     "static/js/2.7dc81264.chunk.js",
-    "static/css/main.0d227f7a.chunk.css",
+    "static/css/main.8597e41e.chunk.css",
     "static/js/main.8ac8cdcf.chunk.js"
   ]
 }
