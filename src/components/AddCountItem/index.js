@@ -33,6 +33,11 @@ const AddCountItem = ({ countInStock, price, quantity, onAddToCartClick }) => {
   const decrimentCount = () => {
     if (countValue > 0) {
       setCountValue(countValue - 1);
+      const item = {
+        price,
+        quantity: countValue - 1,
+      };
+      setTotalPrice(getTotalCountSingleItem(item));
     }
     setErrorValue('');
   };
@@ -43,6 +48,11 @@ const AddCountItem = ({ countInStock, price, quantity, onAddToCartClick }) => {
     }
     if (validateCountAmount(countValue + 1, countInStock)) {
       setCountValue(countValue + 1);
+      const item = {
+        price,
+        quantity: countValue + 1,
+      };
+      setTotalPrice(getTotalCountSingleItem(item));
     }
   };
   return (
