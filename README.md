@@ -62,6 +62,9 @@ npm run lint
 #check your code and format it using mentioned rules
 npm run prettier:fix
 
+#deploy your app on github pages
+npm run deploy
+
 # On pre-commit using husky (include lint, prettier and test scripts)
 Auto run on pre-commit
 ```
