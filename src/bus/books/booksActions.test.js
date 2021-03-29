@@ -6,6 +6,7 @@ import {
   getBooksSuccess,
   getBooksFail,
   getBooksRequest,
+  clearBooks,
 } from './booksActions';
 import {
   BOOKS_GET_FAIL,
@@ -13,6 +14,7 @@ import {
   BOOKS_GET_SUCCESS,
   BOOK_SEARCH,
   BOOK_FILTER_BY_PRICE,
+  BOOKS_CLEAR,
 } from './booksTypes';
 
 describe('books actions', () => {
@@ -39,6 +41,12 @@ describe('books actions', () => {
     expect(getBooksFail({ message: 'some error message' })).toEqual(
       expectedAction
     );
+  });
+  test('should create action to clear books', () => {
+    const expectedAction = {
+      type: BOOKS_CLEAR,
+    };
+    expect(clearBooks()).toEqual(expectedAction);
   });
 });
 describe('filter and search books actions', () => {

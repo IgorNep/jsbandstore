@@ -6,6 +6,7 @@ import {
   BOOKS_GET_SUCCESS,
   BOOK_SEARCH,
   BOOK_FILTER_BY_PRICE,
+  BOOKS_CLEAR,
 } from './booksTypes';
 import getPriceFilterCondition from './helpers/getPriceFilterCondition';
 
@@ -59,6 +60,8 @@ const filterByPrice = (priceValue) => (dispatch) => {
   dispatch(filterByPriceSuccess(priceValue, priceFilterCondition));
 };
 
+const clearBooks = () => ({ type: BOOKS_CLEAR });
+
 export {
   getBooks,
   filterByPrice,
@@ -67,4 +70,5 @@ export {
   getBooksSuccess,
   getBooksFail,
   getBooksRequest,
+  clearBooks,
 };

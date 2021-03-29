@@ -3,3 +3,4 @@ export const BOOKS_GET_SUCCESS = 'BOOKS_GET_SUCCESS';
 export const BOOKS_GET_FAIL = 'BOOKS_GET_FAIL';
 export const BOOK_SEARCH = 'BOOK_SEARCH';
 export const BOOK_FILTER_BY_PRICE = 'BOOK_FILTER_BY_PRICE';
+export const BOOKS_CLEAR = 'BOOKS_CLEAR';
